@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青学生の時間割</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>青学生の時間割</h1>
+    <h3>初回は最下部のボタン表示切り替えボタンを押して、設定を行ってください</h3>
+    <div class="links-container">
+        <a href="https://aguinfo.jm.aoyama.ac.jp/" target="_blank" class="styled-link">Aoyama-Portalはこちら</a>
+        <a href="https://cp.aim.aoyama.ac.jp/" target="_blank" class="styled-link">CoursePowerはこちら</a>
+        <a href="https://syllabus.aoyama.ac.jp/" target="_blank" class="styled-link">講義内容・シラバスの検索はこちら</a>
+    </div>
+    <div class="button-container">
+        <button id="save-data">設定を保存</button>
+        <button id="export-data">設定をエクスポート</button>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>時限</th>
+                <th>月曜日</th>
+                <th>火曜日</th>
+                <th>水曜日</th>
+                <th>木曜日</th>
+                <th>金曜日</th>
+                <th>土曜日</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="time-column">第1時限<br>9:00 - 10:30</td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="time-column">礼拝<br>10:30 - 11:00</td>
+                <td colspan="7">礼拝 (<a href="https://www.aoyamagakuin.jp/outline/christ/weekly_report/" target="_blank">礼拝週報はこちら</a>)</td>
+            </tr>
+            <td class="time-column">第2時限<br>11:00-12:30</td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="time-column">昼休み<br>12:30 - 13:20</td>
+                <td colspan="7">昼休み (<a href="https://www.instagram.com/gakushokusagami/" target="_blank">学食情報はこちら</a>)</td>
+            </tr>
+            <td class="time-column">第3時限<br>13:20 - 14:50</td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+            </tr>
+            <td class="time-column">第4時限<br>15:05 - 16:35</td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+            </tr>
+            <td class="time-column">第5時限<br>16:50 - 18:20</td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+            </tr>
+            <td class="time-column">第6時限<br>18:30 - 20:00</td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+            </tr>
+            <td class="time-column">第7時限<br>20:10 - 21:40</td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+                <td>
+                    <div class="content hidden">
+                        <a href="#" class="course-link">授業名</a><br>
+                        <button class="edit-name">名前変更</button>
+                        <button class="edit-url">URL変更</button>
+                    </div>
+                    <button class="toggle-visibility">表示切替</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="button-container">
+        <button id="toggle-All-Buttons-Visibility">すべてのボタンを表示/非表示</button>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Coursepower-up. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

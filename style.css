@@ -1,0 +1,214 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: left;
+    color: #025f3d;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    font-size: 18px;
+    color: #555;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* リンクのスタイル */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.styled-link {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007BFF;
+    text-decoration: none;
+    border-bottom: 2px solid transparent; /* 初期状態では透明 */
+    padding: 5px;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+}
+
+.styled-link:hover {
+    color: #0056b3;
+    border-bottom-color: #0056b3; /* ホバー時に下線を目立たせる */
+}
+
+.styled-link:active {
+    color: #003f7f;
+    border-bottom-color: #003f7f; /* クリック時の色 */
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* 時限の行 (表頭の横方向セル) */
+th {
+    background-color: #007BFF; /* 濃い青 */
+    color: #fff; /* 白い文字 */
+    font-weight: bold;
+    font-size: 16px; /* 少し大きな文字サイズ */
+    padding: 15px 20px; /* 余白を広げて視認性向上 */
+    border: 2px solid #0056b3; /* 濃い枠線で目立たせる */
+    text-transform: uppercase; /* テキストを大文字にする（オプション） */
+}
+
+/* 時限列 (縦方向のセル) */
+td.time-column {
+    background-color: #f1f1f1; /* 淡いグレーで背景を目立たせる */
+    color: #333; /* 濃い文字色 */
+    font-weight: bold;
+    font-size: 15px; /* やや大きな文字サイズ */
+    text-align: center; /* 文字を中央揃え */
+    padding: 12px 15px; /* 余白を少し広げる */
+    border-right: 2px solid #ddd; /* 隣の列と区別する枠線 */
+}
+
+/* ホバー時にさらに強調 */
+th:hover {
+    background-color: #0056b3; /* より濃い青 */
+    color: #e9f5ff; /* 明るい青白色 */
+    cursor: default; /* ユーザーがクリックできないことを示す */
+    transition: background-color 0.3s ease;
+}
+
+td {
+    position: relative;
+    background-color: #fff;
+}
+
+tr:nth-child(odd) td {
+    background-color: #f9f9f9;
+}
+
+tr:hover td {
+    background-color: #e9f5ff;
+}
+
+td button {
+    margin: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+td button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* .edit-name ボタンのスタイル（淡い緑色） */
+td button.edit-name {
+    background-color: #a8d5b9; /* 淡い緑色 */
+    color: #333; /* テキストを見やすくするため濃い灰色 */
+}
+
+td button.edit-name:hover {
+    background-color:rgb(93, 197, 134); /* 少し濃い淡い緑色 */
+    transform: scale(1.05);
+}
+
+/* .edit-url ボタンのスタイル（淡い黄色） */
+td button.edit-url {
+    background-color: #ffe8a1; /* 淡い黄色 */
+    color: #333; /* テキストを見やすくするため濃い灰色 */
+}
+
+td button.edit-url:hover {
+    background-color: #ffd97a; /* 少し濃い淡い黄色 */
+    transform: scale(1.05);
+}
+
+td button.toggle-visibility {
+    background-color:rgb(174, 217, 255); /* 空色 */
+    color: #333; /* テキストを見やすくするため濃い灰色 */
+    font-size: 14px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+td button.toggle-visibility:hover {
+    background-color:rgb(121, 186, 243); /* 少し濃い空色 */
+    transform: scale(1.05);
+}
+
+td a {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+td a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+.hidden {
+    display: none;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.toggle-buttons {
+    margin: 10px;
+    cursor: pointer;
+    color: #007BFF;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.toggle-buttons:hover {
+    color: #0056b3;
+}
+
+.button-container {
+    margin: 20px;
+    text-align: center;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #f1f1f1;
+    text-align: center;
+    color: #555;
+    font-size: 14px;
+    border-top: 1px solid #ddd;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+}
