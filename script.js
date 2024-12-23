@@ -98,7 +98,7 @@ document.querySelectorAll('.toggle-visibility').forEach(button => {
     
     // ボタンを非表示/表示にする関数
     function toggleAllButtonsVisibility() {
-        const buttons = document.querySelectorAll('button:not(#toggle-All-Buttons-Visibility)');
+        const buttons = document.querySelectorAll('button:not(#toggle-All-Buttons-Visibility):not(#save-data):not(#export-data)');
         buttons.forEach(button => {
             button.style.display = button.style.display === 'none' ? '' : 'none';
         });
@@ -109,64 +109,75 @@ document.querySelectorAll('.toggle-visibility').forEach(button => {
     
     // デフォルトで他のボタンを非表示にする
     function hideAllButtons() {
-        const buttons = document.querySelectorAll('button:not(#toggle-All-Buttons-Visibility)');
+        const buttons = document.querySelectorAll('button:not(#toggle-All-Buttons-Visibility):not(#save-data):not(#export-data)');
         buttons.forEach(button => {
             button.style.display = 'none';
         });
     }
 
-    /*// 設定データをインポートする関数
-    function importSettingsFromScript(file) {
+    // 設定ファイルをインポート
+    function importSettingsFromFile(file) {
         const reader = new FileReader();
         reader.onload = (e) => {
             try {
-        // 既存の scheduleData を削除
-        if (typeof scheduleData !== 'undefined') {
-            delete window.scheduleData;
-        }
+                const scriptContent = e.target.result;
+                const scheduleDataMatch = scriptContent.match(/const scheduleData = (\[.*\]);/s);
+                if (scheduleDataMatch && scheduleDataMatch[1]) {
+                    const importedData = JSON.parse(scheduleDataMatch[1]);
+                    saveToLocalStorage(importedData);
+                    applySettings(importedData);
+                    alert('設定がインポートされました！');
+                } else {
+                    throw new Error('インポートされたデータが不正です。');
+                }
+            } catch (error) {
+                alert('無効なファイル形式です。正しいJavaScript形式のファイルを選択してください。');
+                console.error('Error importing settings:', error);
+            }
+        };
+        reader.readAsText(file);
+    }
 
-        const importedScript = document.createElement('script');
-        importedScript.textContent = e.target.result;
-        document.body.appendChild(importedScript);
-
-        if (typeof scheduleData !== 'undefined') {
-            applySettings(scheduleData);
-            alert('設定が手動でロードされました！');
-        } else {
-            throw new Error('scheduleData is not defined in the imported script.');
-        }
-        } catch (error) {
-            alert('無効なスクリプトファイルです。');
-            console.error('Error importing script:', error);
-        }
-    };
-    reader.readAsText(file);*/
- 
     // インポートボタンを作成
-    /*const importInput = document.createElement('input');
-    importInput.type = 'file';
-    importInput.id = 'import-data';
-    importInput.style.display = 'none';
-    importInput.addEventListener('change', (event) => {
+    const importButton = document.createElement('input');
+    importButton.type = 'file';
+    importButton.id = 'import-data';
+    importButton.style.display = 'none';
+
+    // 設定をローカルファイルからインポートするボタンの処理
+    document.getElementById('import-data').addEventListener('change', (event) => {
         const file = event.target.files[0];
         if (file) {
-            importSettingsFromScript(file);
+            importSettingsFromFile(file);
+            event.target.value = ''; // ファイル名をリセット
         }
     });
 
-    const importButton = document.createElement('button');
-    importButton.textContent = '設定をインポート';
-    importButton.addEventListener('click', () => importInput.click());*/
-
-    // ボタンをページに追加
-    /*document.body.appendChild(importInput);
-    document.body.appendChild(importButton);*/
+    // 設定データをローカルに保存する関数
+    function saveSettingsToScript() {
+        const data = [];
+        document.querySelectorAll('td').forEach(td => {
+            const link = td.querySelector('.course-link');
+            const content = td.querySelector('.content');
+            data.push({
+                name: link ? link.textContent : "",
+                url: link ? link.href : "",
+                visible: content ? !content.classList.contains('hidden') : false
+            });
+        });
+        const scriptContent = `// schedule_data.js\nconst scheduleData = ${JSON.stringify(data, null, 2)};`;
+        const blob = new Blob([scriptContent], { type: 'text/javascript' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'schedule_data.js';
+        a.click();
+    }
     
     // エクスポートボタンを作成
-    //const exportButton = document.createElement('button');
+    const exportButton = document.createElement('button');
 
     // エクスポートボタンのイベントリスナー
-    //document.getElementById('export-data').addEventListener('click', saveSettingsToScript);
+    document.getElementById('export-data').addEventListener('click', saveSettingsToScript);
 
     // 初期化処理
     hideAllButtons(); // デフォルトで他のボタンを非表示に
