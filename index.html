@@ -175,6 +175,51 @@
     margin-right: 0.3rem;
   }
 
+  .hero-link {
+    margin-top: 1.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+
+  .hero-link::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .hero-link a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding-bottom: 0.25rem;
+    border-bottom: 1px solid var(--rule);
+    transition: color 0.2s, border-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .hero-link a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .hero-link a .arrow {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-variation-settings: 'opsz' 24, 'WONK' 1;
+    transition: transform 0.25s;
+  }
+
+  .hero-link a:hover .arrow {
+    transform: translate(2px, -2px);
+  }
+
   .hero-vertical {
     writing-mode: vertical-rl;
     font-family: 'Noto Serif JP', serif;
@@ -447,6 +492,11 @@
       <div class="hero-advisor reveal reveal-delay-5">
         <span>Advisor</span>
         <strong><span class="name-jp">奥村 綱雄 先生</span></strong>
+      </div>
+      <div class="hero-link reveal reveal-delay-5">
+        <a href="https://www.linkedin.com/in/shunsuke-sekiya-70a71b3ab" target="_blank" rel="noopener">
+          LinkedIn <span class="arrow">↗</span>
+        </a>
       </div>
     </div>
     <div class="hero-vertical reveal reveal-delay-5">
