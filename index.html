@@ -1,703 +1,532 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Shunsuke — 横浜国立大学大学院 計量経済学 / Logicool Japan インターン / TechTeacher" />
-<title>Shunsuke — Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=IBM+Plex+Mono:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>関谷 俊祐 — Shunsuke Sekiya | Yokohama National University</title>
+<meta name="description" content="関谷俊祐 / Shunsuke Sekiya — 横浜国立大学大学院国際社会科学府 経済学専攻 博士課程前期">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1;1,9..144,300..900,0..100,0..1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Noto+Serif+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f3efe6;
-    --bg-alt: #ebe5d7;
-    --ink: #1a1715;
-    --ink-soft: #3a342f;
-    --muted: #8a8278;
-    --rule: #c9c0b0;
-    --accent: #8b2635;
-    --accent-soft: #b1404e;
+    --paper: #f1ebde;
+    --paper-deep: #ebe3d2;
+    --ink: #1b1a23;
+    --ink-soft: #4b4956;
+    --ink-faint: #8a8693;
+    --accent: #7a2a36;
+    --rule: #c8bca4;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
 
   body {
-    background: var(--bg);
+    background: var(--paper);
     color: var(--ink);
-    font-family: "Noto Serif JP", "Fraunces", Georgia, serif;
-    font-weight: 400;
-    line-height: 1.7;
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
+    font-family: 'Newsreader', 'Noto Serif JP', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.68;
     overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 15% 8%, rgba(122, 42, 54, 0.05) 0%, transparent 38%),
+      radial-gradient(circle at 85% 90%, rgba(122, 42, 54, 0.03) 0%, transparent 50%);
+    min-height: 100vh;
   }
 
-  /* Paper texture using subtle noise gradient */
   body::before {
-    content: "";
+    content: '';
     position: fixed;
     inset: 0;
-    background-image:
-      radial-gradient(circle at 20% 30%, rgba(139, 38, 53, 0.03) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(26, 23, 21, 0.03) 0%, transparent 50%);
     pointer-events: none;
-    z-index: 0;
+    z-index: 1;
+    opacity: 0.32;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.1 0 0 0 0 0.13 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
-  main, header, footer { position: relative; z-index: 1; }
+  ::selection { background: var(--accent); color: var(--paper); }
 
-  /* Layout */
   .container {
-    max-width: 1100px;
+    max-width: 1080px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 4rem 3rem 3rem;
+    position: relative;
+    z-index: 2;
   }
 
-  /* Header */
-  header {
-    padding: 1.5rem 0;
-    border-bottom: 1px solid var(--rule);
-    background: var(--bg);
-    position: sticky;
-    top: 0;
-    z-index: 10;
-  }
-
-  .header-inner {
+  /* ========== Top mark ========== */
+  .mark {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
-  }
-
-  .brand {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-style: italic;
-    font-size: 1.25rem;
-    letter-spacing: -0.01em;
-  }
-
-  nav ul {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  nav a {
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  nav a:hover { color: var(--accent); }
-
-  /* Hero */
-  .hero {
-    padding: 6rem 0 4rem;
+    align-items: center;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--rule);
+    margin-bottom: 5rem;
   }
 
-  .hero-grid {
+  .mark .right { color: var(--accent); }
+
+  /* ========== Hero ========== */
+  .hero {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 200px;
     gap: 3rem;
     align-items: end;
-  }
-
-  .hero-meta {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.75rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    line-height: 2;
-  }
-
-  .hero-meta div { display: flex; justify-content: space-between; }
-
-  .hero-title {
-    font-family: "Fraunces", serif;
-    font-weight: 300;
-    font-size: clamp(3rem, 8vw, 6rem);
-    line-height: 0.95;
-    letter-spacing: -0.03em;
-    color: var(--ink);
-  }
-
-  .hero-title em {
-    font-style: italic;
-    font-weight: 400;
-    color: var(--accent);
-  }
-
-  .hero-sub {
-    margin-top: 2rem;
-    font-size: 1.125rem;
-    color: var(--ink-soft);
-    max-width: 38rem;
-    line-height: 1.8;
-  }
-
-  /* Section */
-  section {
-    padding: 5rem 0;
+    margin-bottom: 6rem;
+    padding-bottom: 4rem;
     border-bottom: 1px solid var(--rule);
+    position: relative;
   }
 
-  .section-grid {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-    gap: 3rem;
-  }
-
-  .section-label {
-    font-family: "IBM Plex Mono", monospace;
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
-    color: var(--muted);
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    padding-top: 0.7rem;
-    border-top: 2px solid var(--ink);
-    align-self: start;
-    position: sticky;
-    top: 5rem;
-  }
-
-  .section-label .num {
-    display: block;
-    font-size: 0.65rem;
-    color: var(--accent);
-    margin-top: 0.25rem;
-  }
-
-  h2 {
-    font-family: "Fraunces", serif;
-    font-weight: 400;
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    color: var(--ink-faint);
     margin-bottom: 2rem;
-  }
-
-  h2 em { font-style: italic; color: var(--accent); }
-
-  h3 {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.01em;
-  }
-
-  p { margin-bottom: 1.25rem; color: var(--ink-soft); }
-
-  /* About */
-  .about-text { font-size: 1.05rem; max-width: 40rem; }
-
-  .about-text strong { color: var(--ink); font-weight: 500; }
-
-  /* Research */
-  .research-card {
-    background: var(--bg-alt);
-    padding: 2rem;
-    border-left: 3px solid var(--accent);
-    margin-bottom: 1.5rem;
-  }
-
-  .research-title {
-    font-family: "Fraunces", serif;
-    font-weight: 500;
-    font-size: 1.4rem;
-    line-height: 1.3;
-    margin-bottom: 1rem;
-    letter-spacing: -0.01em;
-  }
-
-  .research-meta {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--muted);
-    margin-bottom: 1rem;
-  }
-
-  .methods {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1.25rem;
-  }
-
-  .methods span {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.7rem;
-    padding: 0.3rem 0.6rem;
-    background: var(--bg);
-    border: 1px solid var(--rule);
-    color: var(--ink-soft);
-  }
-
-  /* Experience */
-  .exp-item {
-    display: grid;
-    grid-template-columns: 8rem 1fr;
-    gap: 2rem;
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--rule);
-  }
-
-  .exp-item:last-child { border-bottom: 1px solid var(--rule); }
-
-  .exp-date {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.75rem;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding-top: 0.4rem;
-  }
-
-  .exp-role {
-    font-family: "Fraunces", serif;
-    font-style: italic;
-    color: var(--accent);
-    font-size: 0.95rem;
-    margin-top: 0.25rem;
-  }
-
-  .exp-desc {
-    margin-top: 0.75rem;
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  /* Skills */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-
-  .skill-group h4 {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--accent);
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .skill-list {
-    list-style: none;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.85rem;
-    color: var(--ink-soft);
-    line-height: 2;
-  }
-
-  /* Beyond / hobbies */
-  .beyond-text {
-    font-size: 1.05rem;
-    max-width: 40rem;
-    margin-bottom: 2rem;
-  }
-
-  .beyond-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin-top: 2rem;
-  }
-
-  .beyond-card {
-    padding: 1.5rem;
-    background: var(--bg-alt);
-    border-top: 2px solid var(--ink);
-  }
-
-  .beyond-card h4 {
-    font-family: "Fraunces", serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 1.05rem;
-    margin-bottom: 0.5rem;
-    color: var(--accent);
-  }
-
-  .beyond-card p {
-    font-size: 0.85rem;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  /* Contact */
-  .contact-grid {
-    display: grid;
+    align-items: center;
     gap: 1rem;
   }
 
-  .contact-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 1.25rem 0;
-    border-bottom: 1px solid var(--rule);
-    text-decoration: none;
-    color: var(--ink);
-    transition: padding 0.3s, color 0.3s;
+  .hero-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
   }
 
-  .contact-link:hover {
-    padding-left: 1rem;
+  .hero-name-jp {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(3.5rem, 8.5vw, 6.5rem);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  .hero-name-en {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+    font-weight: 400;
+    font-style: italic;
+    font-variation-settings: 'opsz' 60, 'SOFT' 100, 'WONK' 1;
+    color: var(--accent);
+    letter-spacing: 0.01em;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-affil {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+    font-weight: 400;
+    font-variation-settings: 'opsz' 24, 'SOFT' 50;
+    line-height: 1.55;
+    color: var(--ink);
+    max-width: 580px;
+  }
+
+  .hero-affil .jp {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.92em;
+    display: block;
+    color: var(--ink-soft);
+    margin-top: 0.4rem;
+  }
+
+  .hero-advisor {
+    margin-top: 1.8rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-advisor strong {
+    font-family: 'Fraunces', serif;
+    font-size: 1.05rem;
+    font-weight: 400;
+    font-style: italic;
+    font-variation-settings: 'opsz' 24, 'WONK' 1;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink);
+  }
+
+  .hero-advisor strong .name-jp {
+    font-family: 'Noto Serif JP', serif;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--accent);
+    margin-right: 0.3rem;
+  }
+
+  .hero-vertical {
+    writing-mode: vertical-rl;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1rem;
+    letter-spacing: 0.4em;
+    color: var(--ink-faint);
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid var(--rule);
+    padding-left: 1.5rem;
+    min-height: 280px;
+  }
+
+  /* ========== Section ========== */
+  section { margin-bottom: 5rem; }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    align-items: baseline;
+    margin-bottom: 3rem;
+  }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
     color: var(--accent);
   }
 
-  .contact-link .label {
-    font-family: "Fraunces", serif;
-    font-size: 1.5rem;
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
     font-weight: 400;
-    letter-spacing: -0.01em;
+    font-variation-settings: 'opsz' 144, 'SOFT' 40;
+    line-height: 1;
+    color: var(--ink);
   }
 
-  .contact-link .arrow {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-
-  /* Footer */
-  footer {
-    padding: 3rem 0;
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 0.7rem;
-    text-transform: uppercase;
+  .section-title-jp {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--ink-faint);
+    display: block;
+    margin-top: 0.5rem;
     letter-spacing: 0.15em;
-    color: var(--muted);
   }
 
-  .footer-inner {
+  /* ========== Timeline ========== */
+  .timeline {
+    position: relative;
+    padding-left: 3rem;
+    max-width: 820px;
+    margin-left: 200px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 1px;
+    background: var(--rule);
+  }
+
+  .tl-item {
+    position: relative;
+    padding-bottom: 2.5rem;
+  }
+
+  .tl-item:last-child { padding-bottom: 0; }
+
+  .tl-item::before {
+    content: '';
+    position: absolute;
+    left: -3rem;
+    top: 0.55rem;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    transition: all 0.3s;
+  }
+
+  .tl-item.current::before {
+    background: var(--accent);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(122, 42, 54, 0.15);
+  }
+
+  .tl-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.35rem;
+  }
+
+  .tl-school {
+    font-family: 'Fraunces', serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    font-variation-settings: 'opsz' 60, 'SOFT' 30;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .tl-school .jp {
+    font-family: 'Noto Serif JP', serif;
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin-top: 0.25rem;
+  }
+
+  /* ========== Contact ========== */
+  .contact-list {
+    list-style: none;
+    margin-left: 200px;
+    max-width: 820px;
+  }
+
+  .contact-list li {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 1.5rem;
+    align-items: baseline;
+  }
+
+  .contact-list li:first-child {
+    border-top: 1px solid var(--rule);
+  }
+
+  .contact-list .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .contact-list a {
+    font-family: 'Fraunces', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    font-variation-settings: 'opsz' 60, 'WONK' 1;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s;
+    border-bottom: 1px solid transparent;
+  }
+
+  .contact-list a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  /* ========== Footer ========== */
+  footer {
+    margin-top: 4rem;
+    padding: 2rem 0 0;
+    border-top: 1px solid var(--rule);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
   }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    .container { padding: 0 1.25rem; }
-    nav ul { display: none; }
-    .hero-grid,
-    .section-grid,
-    .skills-grid,
-    .beyond-grid,
-    .exp-item {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    .section-label { position: static; }
-    .hero { padding: 4rem 0 3rem; }
-    section { padding: 3rem 0; }
+  footer em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--accent);
   }
 
-  /* Subtle entrance */
+  /* ========== Animations ========== */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .hero-title, .hero-sub, .hero-meta {
-    animation: fadeUp 0.8s ease-out both;
+  .reveal {
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
   }
 
-  .hero-meta { animation-delay: 0.1s; }
-  .hero-title { animation-delay: 0.2s; }
-  .hero-sub { animation-delay: 0.4s; }
+  .reveal-delay-1 { animation-delay: 0.15s; }
+  .reveal-delay-2 { animation-delay: 0.3s; }
+  .reveal-delay-3 { animation-delay: 0.45s; }
+  .reveal-delay-4 { animation-delay: 0.6s; }
+  .reveal-delay-5 { animation-delay: 0.75s; }
+
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+
+  .scroll-reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ========== Responsive ========== */
+  @media (max-width: 800px) {
+    .container { padding: 2rem 1.5rem 2rem; }
+    .mark { margin-bottom: 3rem; font-size: 0.62rem; }
+
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+    }
+    .hero-vertical { display: none; }
+
+    .section-header {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    section { margin-bottom: 3.5rem; }
+
+    .timeline { margin-left: 0; padding-left: 2.3rem; }
+    .tl-item::before { left: -2.3rem; }
+    .contact-list { margin-left: 0; }
+    .contact-list li {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+      padding: 1rem 0;
+    }
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="container header-inner">
-    <div class="brand">Shunsuke</div>
-    <nav>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+<div class="container">
+
+  <div class="mark reveal">
+    <span>Sekiya · Shunsuke · 関谷 俊祐</span>
+    <span class="right">26PA007</span>
   </div>
-</header>
 
-<main>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-meta">
-        <div><span>Location</span><span>Yokohama, JP</span></div>
-        <div><span>Role</span><span>M1 Student</span></div>
-        <div><span>Field</span><span>Econometrics</span></div>
-        <div><span>Year</span><span>2026</span></div>
-      </div>
-      <div>
-        <h1 class="hero-title">
-          データで<br />
-          因果を<em>読み解く</em>。
-        </h1>
-        <p class="hero-sub">
-          横浜国立大学大学院 国際社会科学府 修士1年。計量経済学を専攻し、労働経済学・公共経済学への応用を研究しています。日中は研究と教育に、夜は FPS とブラウザ拡張機能の開発に。
-        </p>
+  <!-- ========== Hero ========== -->
+  <header class="hero">
+    <div>
+      <div class="hero-eyebrow reveal reveal-delay-1">Academic Profile &nbsp;·&nbsp; 横浜国立大学</div>
+      <h1 class="hero-name-jp reveal reveal-delay-2">関谷 俊祐</h1>
+      <div class="hero-name-en reveal reveal-delay-3">Shunsuke Sekiya</div>
+      <p class="hero-affil reveal reveal-delay-4">
+        Yokohama National University &nbsp;·&nbsp; Graduate School of International Social Sciences
+        <span class="jp">横浜国立大学大学院 国際社会科学府 経済学専攻 博士課程前期</span>
+      </p>
+      <div class="hero-advisor reveal reveal-delay-5">
+        <span>Advisor</span>
+        <strong><span class="name-jp">奥村 綱雄 先生</span></strong>
       </div>
     </div>
-  </div>
-</section>
+    <div class="hero-vertical reveal reveal-delay-5">
+      横浜国立大学大学院
+    </div>
+  </header>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="section-grid">
-      <div class="section-label">
-        About
-        <span class="num">01 / 06</span>
-      </div>
+  <!-- ========== 略歴 / Education ========== -->
+  <section id="education">
+    <div class="section-header scroll-reveal">
+      <div class="section-num">§01 / Education</div>
       <div>
-        <h2>はじめまして、<em>Shunsuke</em> です。</h2>
-        <div class="about-text">
-          <p>
-            <strong>横浜国立大学大学院 国際社会科学府</strong> で計量経済学を専攻する修士1年です。奥村教授の指導のもと、因果推論の手法を用いて公共政策と労働市場の関係を研究しています。
-          </p>
-          <p>
-            研究と並行して、<strong>株式会社トモノカイ（TechTeacher）</strong>で中高生にプログラミングを教え、<strong>ロジクール（Logicool Japan）</strong>でゲーミングマーケティングのインターンに従事しています。
-          </p>
-          <p>
-            「データを読み解く力」「学ぶ楽しさを伝える力」「ユーザー視点でモノを考える力」、この三つを同時に磨ける今の環境を大切にしています。
-          </p>
+        <h2 class="section-title">Brief History<span class="section-title-jp">略歴</span></h2>
+      </div>
+    </div>
+
+    <div class="timeline scroll-reveal">
+      <div class="tl-item current">
+        <div class="tl-date">2026 — Present</div>
+        <div class="tl-school">
+          Yokohama National University
+          <span class="jp">横浜国立大学大学院 国際社会科学府 経済学専攻 博士課程前期 在学中</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-<!-- RESEARCH -->
-<section id="research">
-  <div class="container">
-    <div class="section-grid">
-      <div class="section-label">
-        Research
-        <span class="num">02 / 06</span>
+      <div class="tl-item">
+        <div class="tl-date">2022 — 2026</div>
+        <div class="tl-school">
+          Aoyama Gakuin University
+          <span class="jp">青山学院大学 地球社会共生学部 卒業</span>
+        </div>
       </div>
-      <div>
-        <h2>研究テーマ</h2>
-        <div class="research-card">
-          <div class="research-meta">Master's Thesis · 2026—</div>
-          <div class="research-title">
-            2018年配偶者控除改正が既婚女性の労働供給に与えた因果効果
-          </div>
-          <p>
-            2018年の配偶者控除制度改正を自然実験として捉え、KHPS/JHPS のパネルデータ（2014–2023）を用いて既婚女性の労働供給への影響を分析しています。改正の非対称的な構造を活かした symmetric DID 設計と、Causal Forest による異質的処置効果の推定を組み合わせる手法的貢献を目指しています。
-          </p>
-          <div class="methods">
-            <span>TWFE DID</span>
-            <span>Callaway–Sant'Anna</span>
-            <span>Event Study</span>
-            <span>Triple Diff (DDD)</span>
-            <span>Causal Forest</span>
-            <span>Rambachan–Roth Sensitivity</span>
-          </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Exchange</div>
+        <div class="tl-school">
+          Kasetsart University
+          <span class="jp">タイ王国 カセサート大学 交換留学</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">— 2021</div>
+        <div class="tl-school">
+          Kashiwayō High School
+          <span class="jp">神奈川県立柏陽高等学校 卒業</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2003 · 02 · 09</div>
+        <div class="tl-school">
+          Born in Kanagawa
+          <span class="jp">神奈川県生まれ</span>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="container">
-    <div class="section-grid">
-      <div class="section-label">
-        Experience
-        <span class="num">03 / 06</span>
-      </div>
-      <div>
-        <h2>これまでの<em>仕事</em></h2>
+  <!-- ========== Contact removed ========== -->
 
-        <div class="exp-item">
-          <div class="exp-date">2025 — 現在</div>
-          <div>
-            <h3>ロジクール（Logicool Japan）</h3>
-            <div class="exp-role">Gaming Marketing Intern</div>
-            <div class="exp-desc">
-              ゲーミングデバイスのマーケティング戦略立案。20代向けブランド認知拡大施策の企画・提案。コラボレーション施策や競合分析を担当。
-            </div>
-          </div>
-        </div>
+  <footer>
+    <span>© <em>Shunsuke Sekiya</em> &nbsp;/&nbsp; 関谷俊祐</span>
+    <span>Yokohama · 横浜</span>
+  </footer>
 
-        <div class="exp-item">
-          <div class="exp-date">2024 — 現在</div>
-          <div>
-            <h3>株式会社トモノカイ（TechTeacher）</h3>
-            <div class="exp-role">Coding Tutor</div>
-            <div class="exp-desc">
-              中高生向けのプログラミング・Minecraftプロジェクト型学習を担当。一人ひとりの興味に寄り添ったカリキュラム設計と、保護者向けレポート作成。
-            </div>
-          </div>
-        </div>
+</div>
 
-        <div class="exp-item">
-          <div class="exp-date">2026 — </div>
-          <div>
-            <h3>横浜国立大学大学院</h3>
-            <div class="exp-role">Graduate Researcher</div>
-            <div class="exp-desc">
-              国際社会科学府にて計量経済学を専攻。EBPM（証拠に基づく政策立案）の視点から、労働経済学・公共経済学への応用研究を進めています。
-            </div>
-          </div>
-        </div>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
 
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="container">
-    <div class="section-grid">
-      <div class="section-label">
-        Skills
-        <span class="num">04 / 06</span>
-      </div>
-      <div>
-        <h2>使える<em>道具</em></h2>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <h4>Econometrics / Stats</h4>
-            <ul class="skill-list">
-              <li>Difference-in-Differences</li>
-              <li>Causal Forest (GRF)</li>
-              <li>Event Study Analysis</li>
-              <li>Partial Identification</li>
-              <li>Panel Data Methods</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <h4>Programming</h4>
-            <ul class="skill-list">
-              <li>Stata</li>
-              <li>R</li>
-              <li>Python</li>
-              <li>JavaScript / TypeScript</li>
-              <li>LaTeX (XeLaTeX / LuaLaTeX)</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <h4>Tools</h4>
-            <ul class="skill-list">
-              <li>VS Code</li>
-              <li>Git / GitHub</li>
-              <li>Obsidian</li>
-              <li>Figma</li>
-            </ul>
-          </div>
-          <div class="skill-group">
-            <h4>Languages</h4>
-            <ul class="skill-list">
-              <li>日本語 — Native</li>
-              <li>English — Business</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BEYOND -->
-<section id="beyond">
-  <div class="container">
-    <div class="section-grid">
-      <div class="section-label">
-        Beyond
-        <span class="num">05 / 06</span>
-      </div>
-      <div>
-        <h2>研究室の<em>外で</em></h2>
-        <p class="beyond-text">
-          仕事と研究以外の時間で、興味と手を動かす感覚を保っています。
-        </p>
-        <div class="beyond-grid">
-          <div class="beyond-card">
-            <h4>VALORANT</h4>
-            <p>最高ランク Immortal 2。プロチームのトライアウト経験あり。エイムと立ち回りで「データから意思決定する」感覚を磨いてきました。</p>
-          </div>
-          <div class="beyond-card">
-            <h4>Gear Collecting</h4>
-            <p>ゲーミングマウスとマウスパッドのコレクター。メインは Logitech G Pro X Superlight 2c。秋葉原をよく徘徊しています。</p>
-          </div>
-          <div class="beyond-card">
-            <h4>Browser Hacking</h4>
-            <p>Brave / Firefox のカスタマイズと拡張機能開発。広告ブロック、タブ管理、生産性向上ツールを自作するのが趣味。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="container">
-    <div class="section-grid">
-      <div class="section-label">
-        Contact
-        <span class="num">06 / 06</span>
-      </div>
-      <div>
-        <h2>連絡先</h2>
-        <p style="margin-bottom: 2rem;">研究、インターン、共同プロジェクトのご相談は以下から。</p>
-        <div class="contact-grid">
-          <a href="mailto:your.email@example.com" class="contact-link">
-            <span class="label">Email</span>
-            <span class="arrow">→ your.email@example.com</span>
-          </a>
-          <a href="https://github.com/yourusername" class="contact-link" target="_blank" rel="noopener">
-            <span class="label">GitHub</span>
-            <span class="arrow">→ @yourusername</span>
-          </a>
-          <a href="https://x.com/yourusername" class="contact-link" target="_blank" rel="noopener">
-            <span class="label">X / Twitter</span>
-            <span class="arrow">→ @yourusername</span>
-          </a>
-          <a href="https://linkedin.com/in/yourusername" class="contact-link" target="_blank" rel="noopener">
-            <span class="label">LinkedIn</span>
-            <span class="arrow">→ /in/yourusername</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <div>© 2026 Shunsuke</div>
-    <div>Built with care · Hosted on GitHub Pages</div>
-  </div>
-</footer>
+  document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
